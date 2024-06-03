@@ -1,1 +1,81 @@
-<p>book works!</p>
+<main class="container p-5">
+    <form class="col-6 mx-auto">
+      <header class="mb-3"><h1>Book Registration</h1></header>
+      <div>
+        <section class="row mb-3">
+          <div class="col">
+            <label class="form-label">Book's Title:</label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Title"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+
+          <div class="col">
+            <label class="form-label">Name Author:</label>
+            <div class="input-group mb-3">
+            
+              <select
+                type="text"
+                class="form-select"
+                placeholder="Title"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              >  
+              <option></option>
+              <option>Autor</option>
+              <option>Livros</option>
+            </select>
+
+                <span class="input-group-text"></span>
+            
+            </div>
+          </div>
+
+          <div >
+            <label for="txt" class="form-label">Synopsis </label>
+            <div class="input-group">
+                <textarea 
+                class="form-control"
+                id="mensagem"   
+                rows="5"
+                placeholder="Synopsis"></textarea>
+            </div>
+          </div>
+        </section>
+        <section class="row mb-3">
+          <div class="col">
+            <label class="form-label">Release Date Of:</label>
+            <div class="input-group mb-2 sm-10">
+                <input type="month" class="form-control" id="ano" min="100" max="2099" step="100" placeholder="Release Date Of">
+              </div>
+          </div>
+          <div class="col">
+            <label for="txtFullName" class="sm-2 form-label">
+                Literary Genre:
+            </label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Literary Genre"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+          <div class="btn-save text-center"> 
+            <button type="button" class="btn btn-secondary w-50 mt-3">Save</button>
+          </div>
+        </section>
+        <section class="row mb-3">
+          
+        </section>
+      </div>
+    </form>
+  </main>
