@@ -1,5 +1,7 @@
 import { BookService } from './../../service/book.service';
+import { AuthorService } from '../../service/author.service';
 import { Book } from './../../interface/book';
+import { Author } from '../../interface/author';
 import { Component } from '@angular/core';
 import { FormBuilder,FormGroup } from '@angular/forms';
 
@@ -9,18 +11,20 @@ import { FormBuilder,FormGroup } from '@angular/forms';
   styleUrl: './book.component.css'
 })
 export class BookComponent {
+  arrayAuthor: Author[] = [];
   arrayBook: Book[] = [];
   bookFormGroup : FormGroup;
 
   isEditing: boolean = false
 
   constructor(private formBuilder : FormBuilder,
-             private bookService: BookService
+             private bookService: BookService,
+             private authorService: AuthorService,
   ){
     this.bookFormGroup = formBuilder.group({
       id: [''],
       title: [''],
-      nameauthor: [''],
+      authorId: [''],
       synopsis: [''],
       date: [''],
       genre: ['']
@@ -29,11 +33,18 @@ export class BookComponent {
 
   ngOnInit(): void {
     this.loadBook();
+    this.loadAuthor();
   }
 
   loadBook() {
     this.bookService.getBook().subscribe({
       next: data => this.arrayBook = data,
+    });
+  }
+
+  loadAuthor() {
+    this.authorService.getAuthor().subscribe({
+      next: data => this.arrayAuthor = data,
     });
   }
 
