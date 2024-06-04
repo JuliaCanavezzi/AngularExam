@@ -1,5 +1,5 @@
 <main class="container p-5">
-    <form class="col-6 mx-auto">
+    <form [formGroup]="bookFormGroup" class="col-6 mx-auto">
       <header class="mb-3"><h1>Book Registration</h1></header>
       <div>
         <section class="row mb-3">
@@ -9,6 +9,7 @@
               <input
                 type="text"
                 class="form-control"
+                formControlName="title"
                 placeholder="Title"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -19,30 +20,32 @@
           <div class="col">
             <label class="form-label">Name Author:</label>
             <div class="input-group mb-3">
-            
+
               <select
                 type="text"
                 class="form-select"
+                formControlName="nameauthor"
                 placeholder="Title"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
-              >  
+              >
               <option></option>
               <option>Autor</option>
               <option>Livros</option>
             </select>
 
                 <span class="input-group-text"></span>
-            
+
             </div>
           </div>
 
           <div >
             <label for="txt" class="form-label">Synopsis </label>
             <div class="input-group">
-                <textarea 
+                <textarea
                 class="form-control"
-                id="mensagem"   
+                formControlName="synopsis"
+                id="mensagem"
                 rows="5"
                 placeholder="Synopsis"></textarea>
             </div>
@@ -52,7 +55,7 @@
           <div class="col">
             <label class="form-label">Release Date Of:</label>
             <div class="input-group mb-2 sm-10">
-                <input type="month" class="form-control" id="ano" min="100" max="2099" step="100" placeholder="Release Date Of">
+                <input type="month" class="form-control" formControlName="date" id="ano" min="100" max="2099" step="100" placeholder="Release Date Of">
               </div>
           </div>
           <div class="col">
@@ -63,19 +66,45 @@
               <input
                 type="text"
                 class="form-control"
+                formControlName="genre"
                 placeholder="Literary Genre"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
               />
             </div>
           </div>
-          <div class="btn-save text-center"> 
-            <button type="button" class="btn btn-secondary w-50 mt-3">Save</button>
+
+          <div class="btn-save text-center">
+            <button type="submit"
+            (click)="save()"
+            class="btn btn-dark btn-lg btn-block">Save</button>
           </div>
         </section>
-        <section class="row mb-3">
-          
-        </section>
+        <div class="p-5">
+          <h3 class="mb-4 text-center">Books</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Synopsis</th>
+                <th scope="col">Release Date Of</th>
+                <th scope="col">Literary Genre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let catch of arrayBook">
+                <th scope="row">{{ catch.id }}</th>
+                <td>{{ catch.title }}</td>
+                <td>{{ catch.nameauthor }}</td>
+                <td>{{ catch.synopsis }}</td>
+                <td>{{ catch.date }}</td>
+                <td>{{ catch.genre }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </form>
   </main>

@@ -1,14 +1,15 @@
 <main class="container p-5 ">
-    <form class="col-6 mx-auto">
+    <form [formGroup]="authorFormGroup" class="col-6 mx-auto">
       <header class="mb-3"><h1>Author Registration</h1></header>
       <div>
         <section class="row mb-3">
           <div>
-            <label class="form-label">FullName:</label>
+            <label class="form-label" >FullName:</label>
             <div class="input-group mb-3">
               <input
                 type="text"
                 class="form-control"
+                formControlName="fullname"
                 placeholder="FullName"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -21,6 +22,7 @@
               <input
                 type="text"
                 class="form-control"
+                formControlName="pseudonym"
                 placeholder="Pseudonym"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -32,7 +34,7 @@
           <div class="col">
             <label class="form-label">Born:</label>
             <div class="input-group mb-2 sm-10">
-              <input type="date" name="born" class="form-control" id="born" />
+              <input type="date" name="born" class="form-control" formControlName="born" id="born" />
             </div>
           </div>
           <div class="col">
@@ -43,6 +45,7 @@
               <input
                 type="text"
                 class="form-control"
+                formControlName="nationality"
                 placeholder="Nationality"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -64,12 +67,38 @@
               </label>
             </div>
 
-            <div class="btn-save text-center"> 
-              <button type="button" class="btn btn-secondary w-50 mt-3">Save</button>
+            <div class="btn-save text-center">
+              <button type="submit"
+              (click)="save()"
+              class="btn btn-dark btn-lg btn-block"
+              class="btn btn-secondary w-50 mt-3">Save</button>
             </div>
-
           </div>
         </section>
+        <div class="p-5">
+          <h3 class="mb-4 text-center">Books</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Pseudonym</th>
+                <th scope="col">Born</th>
+                <th scope="col">Nationality</th>
+                <th scope="col">Prize</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let catch of arrayAuthor">
+                <th scope="row">{{ catch.id }}</th>
+                <td>{{ catch.fullname }}</td>
+                <td>{{ catch.pseudonym}}</td>
+                <td>{{ catch.born }}</td>
+                <td>{{ catch.nationality }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </form>
   </main>
