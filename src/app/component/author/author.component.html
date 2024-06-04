@@ -62,7 +62,7 @@
             </div>
             <div class="form-check d-flex justify-content-center gap-2">
               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
+              <label class="form-check-label" for="award">
                 Yes, the author has.
               </label>
             </div>
@@ -88,21 +88,25 @@
             <th scope="col">Pseudonym</th>
             <th scope="col">Born</th>
             <th scope="col">Nationality</th>
-            <th scope="col">Options</th>
+            <th scope="col">Awarded</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let catch of arrayAuthor">
-            <th scope="row">{{ catch.id }}</th>
-            <td>{{ catch.fullname }}</td>
-            <td>{{ catch.pseudonym}}</td>
-            <td>{{ catch.born }}</td>
-            <td>{{ catch.nationality }}</td>
+          <tr *ngFor="let author of arrayAuthor">
+            <th scope="row">{{ author.id }}</th>
+            <td>{{ author.fullname }}</td>
+            <td>{{ author.pseudonym}}</td>
+            <td>{{ author.born }}</td>
+            <td>{{ author.nationality }}</td>
             <td>
-              <button class="btn btn-success btn-sm" (click)="update(catch)">
+              <span *ngIf="author.award" class="badge text-bg-secondary">Awarded</span>
+              <span *ngIf="!author.award" class="badge text-bg-secondary">Not awarded</span>
+            </td>
+            <td>
+              <button class="btn btn-success btn-sm" (click)="update(author)">
                 Edit
               </button>
-              <button class="btn btn-danger btn-sm" (click)="delete(catch)">
+              <button class="btn btn-danger btn-sm" (click)="delete(author)">
                 Remove
               </button>
             </td>

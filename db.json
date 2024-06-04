@@ -16,6 +16,14 @@
       "pseudonym": "2",
       "born": "2002-11-02",
       "nationality": "teste"
+    },
+    {
+      "id": 3,
+      "fullname": "w",
+      "pseudonym": "dwd",
+      "born": "2024-06-29",
+      "nationality": "wwwwww",
+      "award": null
     }
   ]
 }

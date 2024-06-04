@@ -4,4 +4,5 @@ export interface Author{
     pseudonym: string;
     born: Date;
     nationality: string;
+    award: boolean;
 }

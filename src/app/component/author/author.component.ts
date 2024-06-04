@@ -23,7 +23,8 @@ export class AuthorComponent {
       fullname: [''],
       pseudonym: [''],
       born: [''],
-      nationality: ['']
+      nationality: [''],
+      award: [false]
     });
   }
   ngOnInit(): void {
@@ -64,5 +65,9 @@ export class AuthorComponent {
   update(variable: Author) {
     this.isEditing = true;
     this.authorFormGroup.setValue(variable);
+  }
+
+  get awarded(): any {
+    return this.authorFormGroup.get('awarded');
   }
 }
