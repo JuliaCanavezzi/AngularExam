@@ -29,9 +29,7 @@
                 aria-label="Username"
                 aria-describedby="basic-addon1"
               >
-              <option></option>
-              <option>Autor</option>
-              <option>Livros</option>
+              <option [ngValue]="author.id" *ngFor="let author of arrayAuthor">{{author.fullname}}</option>
             </select>
 
                 <span class="input-group-text"></span>
@@ -81,37 +79,39 @@
             class="btn btn-secondary w-50 mt-3">Save</button>
           </div>
         </section>
-        <div class="p-5">
-          <h3 class="mb-4 text-center">Books</h3>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Synopsis</th>
-                <th scope="col">Release Date Of</th>
-                <th scope="col">Literary Genre</th>
-                <th scope="col">Options</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let catch of arrayBook">
-                <th scope="row">{{ catch.id }}</th>
-                <td>{{ catch.title }}</td>
-                <td>{{ catch.synopsis }}</td>
-                <td>{{ catch.date }}</td>
-                <td>{{ catch.genre }}</td>
-                <button class="btn btn-success btn-sm" (click)="update(catch)">
-                  Edit
-                </button>
-                <button class="btn btn-danger btn-sm" (click)="delete(catch)">
-                  Remove
-                </button>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </form>
+    <div class="p-3">
+      <h3 class="mb-2 text-center">Books</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Synopsis</th>
+            <th scope="col">Release Date Of</th>
+            <th scope="col">Literary Genre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let catch of arrayBook">
+            <th scope="row">{{ catch.id }}</th>
+            <td>{{ catch.title }}</td>
+            <td>{{ catch.synopsis }}</td>
+            <td>{{ catch.date }}</td>
+            <td>{{ catch.genre }}</td>
+            <td>
+              <button class="btn btn-success btn-sm w-25" (click)="update(catch)">
+                Edit
+              </button>
+            <button
+            class="btn btn-danger btn-sm w-40" (click)="delete(catch)">
+              Remove
+            </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>

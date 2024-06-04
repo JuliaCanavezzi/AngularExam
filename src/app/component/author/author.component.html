@@ -75,36 +75,39 @@
             </div>
           </div>
         </section>
-        <div class="">
-          <h3 class="mb-4 text-center">Books</h3>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Full Name</th>
-                <th scope="col">Pseudonym</th>
-                <th scope="col">Born</th>
-                <th scope="col">Nationality</th>
-                <th scope="col">Options</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let catch of arrayAuthor">
-                <th scope="row">{{ catch.id }}</th>
-                <td>{{ catch.fullname }}</td>
-                <td>{{ catch.pseudonym}}</td>
-                <td>{{ catch.born }}</td>
-                <td>{{ catch.nationality }}</td>
-                <button class="btn btn-success btn-sm" (click)="update(catch)">
-                  Edit
-                </button>
-                <button class="btn btn-danger btn-sm" (click)="delete(catch)">
-                  Remove
-                </button>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </form>
+
+    <div class="">
+      <h3 class="mb-4 text-center">Books</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Pseudonym</th>
+            <th scope="col">Born</th>
+            <th scope="col">Nationality</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let catch of arrayAuthor">
+            <th scope="row">{{ catch.id }}</th>
+            <td>{{ catch.fullname }}</td>
+            <td>{{ catch.pseudonym}}</td>
+            <td>{{ catch.born }}</td>
+            <td>{{ catch.nationality }}</td>
+            <td>
+              <button class="btn btn-success btn-sm" (click)="update(catch)">
+                Edit
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="delete(catch)">
+                Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>

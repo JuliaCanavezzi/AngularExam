@@ -1,20 +1,20 @@
-  {
+{
   "Book": [
     {
       "id": 1,
-      "title": "e",
-      "synopsis": "k",
-      "authorId": 1,
-      "date": "1",
-      "genre": "a"
+      "title": "teste",
+      "authorId": "",
+      "synopsis": "teste",
+      "date": "2020-02",
+      "genre": "teste"
     }
   ],
   "Author": [
     {
-      "id": 1,
-      "fullname": "Cavanezzi",
-      "pseudonym": "Pedro Augustinho",
-      "born": "2024-06-13",
+      "id": 2,
+      "fullname": "Julia",
+      "pseudonym": "2",
+      "born": "2002-11-02",
       "nationality": "teste"
     }
   ]
