@@ -76,8 +76,9 @@
 
           <div class="btn-save text-center">
             <button type="submit"
-            (click)="save()"
-            class="btn btn-dark btn-lg btn-block">Save</button>
+            (click)="submit()"
+            class="btn btn-dark btn-lg btn-block"
+            class="btn btn-secondary w-50 mt-3">Save</button>
           </div>
         </section>
         <div class="p-5">
@@ -91,6 +92,7 @@
                 <th scope="col">Synopsis</th>
                 <th scope="col">Release Date Of</th>
                 <th scope="col">Literary Genre</th>
+                <th scope="col">Options</th>
               </tr>
             </thead>
             <tbody>
@@ -101,6 +103,12 @@
                 <td>{{ catch.synopsis }}</td>
                 <td>{{ catch.date }}</td>
                 <td>{{ catch.genre }}</td>
+                <button class="btn btn-success btn-sm" (click)="update(catch)">
+                  Edit
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="delete(catch)">
+                  Remove
+                </button>
               </tr>
             </tbody>
           </table>

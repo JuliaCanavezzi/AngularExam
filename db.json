@@ -1,10 +1,12 @@
 {
-  "book": [
+  "Book": [],
+  "Author": [
     {
-    }
-  ],
-  "author": [
-    {
+      "id": 2,
+      "fullname": "Cavanezzi",
+      "pseudonym": "Pedro Augustinho",
+      "born": "2024-06-13",
+      "nationality": "teste"
     }
   ]
 }

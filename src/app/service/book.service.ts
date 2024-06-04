@@ -7,7 +7,7 @@ import { Book } from '../interface/book';
   providedIn: 'root'
 })
 export class BookService {
-  apiUrl = 'http://localhost:3000/book'
+  apiUrl = 'http://localhost:3000/Book'
 
   constructor(private httpClient: HttpClient) { }
 

@@ -69,13 +69,13 @@
 
             <div class="btn-save text-center">
               <button type="submit"
-              (click)="save()"
+              (click)="submit()"
               class="btn btn-dark btn-lg btn-block"
               class="btn btn-secondary w-50 mt-3">Save</button>
             </div>
           </div>
         </section>
-        <div class="p-5">
+        <div class="">
           <h3 class="mb-4 text-center">Books</h3>
           <table class="table table-striped">
             <thead>
@@ -85,7 +85,7 @@
                 <th scope="col">Pseudonym</th>
                 <th scope="col">Born</th>
                 <th scope="col">Nationality</th>
-                <th scope="col">Prize</th>
+                <th scope="col">Options</th>
               </tr>
             </thead>
             <tbody>
@@ -95,6 +95,12 @@
                 <td>{{ catch.pseudonym}}</td>
                 <td>{{ catch.born }}</td>
                 <td>{{ catch.nationality }}</td>
+                <button class="btn btn-success btn-sm" (click)="update(catch)">
+                  Edit
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="delete(catch)">
+                  Remove
+                </button>
               </tr>
             </tbody>
           </table>

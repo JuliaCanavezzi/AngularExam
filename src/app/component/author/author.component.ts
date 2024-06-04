@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Author } from '../../interface/author';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthorService } from '../../service/author.service';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-author',
@@ -11,7 +13,11 @@ export class AuthorComponent {
   arrayAuthor: Author [] = [];
   authorFormGroup: FormGroup;
 
-  constructor(private formBuilder : FormBuilder){
+  isEditing : boolean = false;
+
+  constructor(private formBuilder : FormBuilder,
+              private authorService : AuthorService
+  ){
     this.authorFormGroup = formBuilder.group({
       id: [''],
       fullname: [''],
@@ -20,8 +26,43 @@ export class AuthorComponent {
       nationality: ['']
     });
   }
+  ngOnInit(): void {
+    this.loadAuthor();
+  }
 
-  save(){
-    this.arrayAuthor.push(this.authorFormGroup.value);
+  loadAuthor() {
+    this.authorService.getAuthor().subscribe({
+      next: data => this.arrayAuthor = data,
+    });
+  }
+
+  submit() {
+    if (this.isEditing) {
+      this.authorService.modify(this.authorFormGroup.value).subscribe({
+        next: () => {
+          this.loadAuthor();
+          this.isEditing = false;
+          this.authorFormGroup.reset();
+        },
+      });
+    } else {
+      this.authorService.save(this.authorFormGroup.value).subscribe({
+        next: data => {
+          this.arrayAuthor.push(data);
+          this.authorFormGroup.reset();
+        },
+      });
+    }
+  }
+
+  delete(variable: Author) {
+    this.authorService.delete(variable).subscribe({
+      next: () => this.loadAuthor(),
+    });
+  }
+
+  update(variable: Author) {
+    this.isEditing = true;
+    this.authorFormGroup.setValue(variable);
   }
 }

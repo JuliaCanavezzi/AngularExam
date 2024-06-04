@@ -1,5 +1,6 @@
+import { BookService } from './../../service/book.service';
+import { Book } from './../../interface/book';
 import { Component } from '@angular/core';
-import { Book } from '../../interface/book';
 import { FormBuilder,FormGroup } from '@angular/forms';
 
 @Component({
@@ -11,7 +12,11 @@ export class BookComponent {
   arrayBook: Book[] = [];
   bookFormGroup : FormGroup;
 
-  constructor(private formBuilder : FormBuilder){
+  isEditing: boolean = false
+
+  constructor(private formBuilder : FormBuilder,
+             private bookService: BookService
+  ){
     this.bookFormGroup = formBuilder.group({
       id: [''],
       title: [''],
@@ -22,7 +27,43 @@ export class BookComponent {
     });
   }
 
-  save(){
-    this.arrayBook.push(this.bookFormGroup.value);
+  ngOnInit(): void {
+    this.loadBook();
+  }
+
+  loadBook() {
+    this.bookService.getBook().subscribe({
+      next: data => this.arrayBook = data,
+    });
+  }
+
+  submit() {
+    if (this.isEditing) {
+      this.bookService.modify(this.bookFormGroup.value).subscribe({
+        next: () => {
+          this.loadBook();
+          this.isEditing = false;
+          this.bookFormGroup.reset();
+        },
+      });
+    } else {
+      this.bookService.save(this.bookFormGroup.value).subscribe({
+        next: data => {
+          this.arrayBook.push(data);
+          this.bookFormGroup.reset();
+        },
+      });
+    }
+  }
+
+  delete(variable: Book) {
+    this.bookService.delete(variable).subscribe({
+      next: () => this.loadBook(),
+    });
+  }
+
+  update(variable: Book) {
+    this.isEditing = true;
+    this.bookFormGroup.setValue(variable);
   }
 }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthorService {
-  apiUrl = 'http://localhost:3000/author'
+  apiUrl = 'http://localhost:3000/Author'
 
   constructor(private httpClient: HttpClient) { }
 
