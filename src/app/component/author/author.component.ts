@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Author } from '../../interface/author';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthorService } from '../../service/author.service';
 import { Subscriber } from 'rxjs';
 
@@ -21,11 +21,11 @@ export class AuthorComponent {
   ){
     this.authorFormGroup = formBuilder.group({
       id: [''],
-      fullname: [''],
-      pseudonym: [''],
-      born: [''],
-      nationality: [''],
-      award: [false]
+      fullname: ['',Validators.required],
+      pseudonym: ['',Validators.required],
+      born: ['',Validators.required],
+      nationality: ['',Validators.required],
+      award: [false,Validators.required]
     });
   }
   ngOnInit(): void {
@@ -75,4 +75,23 @@ export class AuthorComponent {
     this.authorFormGroup.setValue(variable);
   }
 
+  get fullname(): any {
+    return this.authorFormGroup.get('fullname');
+  }
+
+  get pseudonym(): any {
+    return this.authorFormGroup.get('pseudonym');
+  }
+
+  get nationality(): any {
+    return this.authorFormGroup.get('nationality');
+  }
+
+  get born(): any {
+    return this.authorFormGroup.get('born');
+  }
+
+  get awarded(): any {
+    return this.authorFormGroup.get('awarded');
+  }
 }

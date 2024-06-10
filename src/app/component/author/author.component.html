@@ -5,7 +5,7 @@
         <section class="row mb-3">
           <div>
             <label class="form-label" >FullName:</label>
-            <div class="input-group mb-3">
+            <div class="input-group mb-2">
               <input
                 type="text"
                 class="form-control"
@@ -15,6 +15,7 @@
                 aria-describedby="basic-addon1"
               />
             </div>
+            <small class="text-danger text-start" *ngIf="submitted && fullname.hasError('required')">*Name is required</small>
           </div>
           <div >
             <label for="txtFullName" class="form-label"> Pseudonym: </label>
@@ -28,6 +29,7 @@
                 aria-describedby="basic-addon1"
               />
             </div>
+            <small class="text-danger text-start" *ngIf="submitted && pseudonym.hasError('required')">*Pseudonym is required</small>
           </div>
         </section>
         <section class="row mb-3">
@@ -36,21 +38,20 @@
             <div class="input-group mb-2 sm-10">
               <input type="date" name="born" class="form-control" formControlName="born" id="born" />
             </div>
+            <small class="text-danger text-start" *ngIf="submitted && born.hasError('required')">*Date is required</small>
           </div>
           <div class="col">
             <label for="txtFullName" class="sm-2 form-label">
               Nationality:
             </label>
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="nationality"
-                placeholder="Nationality"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
+            <div class="input-group mb-2">
+              <div class="input-group col">
+                <input class="form-control" formControlName="nationality" type="text" name="nationality" id="nationality"
+                  placeholder="Enter the nationality">
+                <span class="input-group-text"><i class="bi bi-globe-americas"></i></span>
+              </div>
             </div>
+            <small class="text-danger text-start" *ngIf="submitted && nationality.hasError('required')">*Nationality is required</small>
           </div>
         </section>
         <section class="row mb-3">
@@ -62,6 +63,7 @@
               <input class="form-check-input" type="checkbox" formControlName="award">
               <label class="form-check-label">Yes, the author has.</label>
             </div>
+
             <div class="btn-save text-center" >
               <button type="submit"
               (click)="submit()"
