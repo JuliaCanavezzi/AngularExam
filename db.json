@@ -1,20 +1,12 @@
 {
   "Book": [
     {
-      "id": 2,
-      "title": "teste",
-      "authorId": 4,
-      "synopsis": "teste",
-      "date": "2028-05",
-      "genre": "Terror"
-    },
-    {
-      "id": 3,
-      "title": "teste",
+      "id": 1,
+      "title": "oi",
       "authorId": 3,
-      "synopsis": "aaa",
+      "synopsis": "oi",
       "date": "2028-05",
-      "genre": "comedia"
+      "genre": "testeee"
     }
   ],
   "Author": [
@@ -24,7 +16,7 @@
       "pseudonym": "ju",
       "born": "2009-03-05",
       "nationality": "bra",
-      "award": false
+      "award": true
     },
     {
       "id": 4,

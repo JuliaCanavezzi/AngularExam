@@ -49,25 +49,22 @@
           <div class="col">
             <label for="txtFullName" class="sm-2 form-label">
                 Literary Genre:
-            </label>
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="genre"
-                placeholder="Literary Genre"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
+            </label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">Clássicos</label>
             </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">Modernos</label>
           </div>
-
-          <div class="btn-save text-center">
-            <button type="submit"
-            (click)="submit()"
-            class="btn btn-dark btn-lg btn-block"
-            class="btn btn-secondary w-50 mt-3">Save</button>
-          </div>
+        </div>
+        <div class="btn-save text-center">
+          <button type="submit"
+          (click)="submit()"
+          class="btn btn-dark btn-lg btn-block"
+          class="btn btn-secondary w-50 mt-3">Save</button>
+        </div>
         </section>
       </div>
     </form>
