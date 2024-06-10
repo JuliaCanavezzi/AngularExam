@@ -54,20 +54,15 @@
           </div>
         </section>
         <section class="row mb-3">
-          <div class="form-check d-grid justify-content-center mb-3">
+          <div class="form-check" class="form-check d-grid justify-content-center mb-3">
             <div class="col">
-              <h4 for="txtFullName" class="form-label">
-                Does the author have a prize ?
-              </h4>
+              <h5 class="form-label">Does the author have an award?</h5>
             </div>
-            <div class="form-check d-flex justify-content-center gap-2">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="award">
-                Yes, the author has.
-              </label>
+            <div class="form-check" class="form-check d-flex justify-content-center gap-2">
+              <input class="form-check-input" type="checkbox" formControlName="award">
+              <label class="form-check-label">Yes, the author has.</label>
             </div>
-
-            <div class="btn-save text-center">
+            <div class="btn-save text-center" >
               <button type="submit"
               (click)="submit()"
               class="btn btn-dark btn-lg btn-block"
@@ -77,6 +72,7 @@
         </section>
       </div>
     </form>
+
 
     <div class="">
       <h3 class="mb-4 text-center">Books</h3>

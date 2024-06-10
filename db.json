@@ -1,29 +1,38 @@
 {
   "Book": [
     {
-      "id": 1,
+      "id": 2,
       "title": "teste",
-      "authorId": "",
+      "authorId": 4,
       "synopsis": "teste",
-      "date": "2020-02",
-      "genre": "teste"
+      "date": "2028-05",
+      "genre": "Terror"
+    },
+    {
+      "id": 3,
+      "title": "teste",
+      "authorId": 3,
+      "synopsis": "aaa",
+      "date": "2028-05",
+      "genre": "comedia"
     }
   ],
   "Author": [
     {
-      "id": 2,
-      "fullname": "Julia",
-      "pseudonym": "2",
-      "born": "2002-11-02",
-      "nationality": "teste"
+      "id": 3,
+      "fullname": "Julia Canavezzi",
+      "pseudonym": "ju",
+      "born": "2009-03-05",
+      "nationality": "bra",
+      "award": false
     },
     {
-      "id": 3,
-      "fullname": "w",
-      "pseudonym": "dwd",
-      "born": "2024-06-29",
-      "nationality": "wwwwww",
-      "award": null
+      "id": 4,
+      "fullname": "dsad",
+      "pseudonym": "asa",
+      "born": "2024-06-06",
+      "nationality": "sss",
+      "award": true
     }
   ]
 }

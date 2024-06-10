@@ -19,21 +19,11 @@
 
           <div class="col">
             <label class="form-label">Name Author:</label>
-            <div class="input-group mb-3">
-
-              <select
-                type="text"
-                class="form-select"
-                formControlName="nameauthor"
-                placeholder="Title"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              >
-              <option [ngValue]="author.id" *ngFor="let author of arrayAuthor">{{author.fullname}}</option>
-            </select>
-
-                <span class="input-group-text"></span>
-
+            <div class="form-label input-group mb-3">
+              <select class="form-control" name="authorId" id="authorId" formControlName="authorId">
+                <option [ngValue]="author.id" *ngFor="let author of arrayAuthor">{{author.fullname}}</option>
+              </select>
+              <span class="input-group-text"><i class="bi bi-person"></i></span>
             </div>
           </div>
 
@@ -98,6 +88,7 @@
           <tr *ngFor="let catch of arrayBook">
             <th scope="row">{{ catch.id }}</th>
             <td>{{ catch.title }}</td>
+            <td>{{ getAuthorName(catch.authorId)?.fullname}}</td>
             <td>{{ catch.synopsis }}</td>
             <td>{{ catch.date }}</td>
             <td>{{ catch.genre }}</td>

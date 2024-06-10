@@ -14,6 +14,7 @@ export class AuthorComponent {
   authorFormGroup: FormGroup;
 
   isEditing : boolean = false;
+  submitted : boolean = false;
 
   constructor(private formBuilder : FormBuilder,
               private authorService : AuthorService
@@ -38,23 +39,30 @@ export class AuthorComponent {
   }
 
   submit() {
-    if (this.isEditing) {
-      this.authorService.modify(this.authorFormGroup.value).subscribe({
-        next: () => {
-          this.loadAuthor();
-          this.isEditing = false;
-          this.authorFormGroup.reset();
-        },
-      });
-    } else {
-      this.authorService.save(this.authorFormGroup.value).subscribe({
-        next: data => {
-          this.arrayAuthor.push(data);
-          this.authorFormGroup.reset();
-        },
-      });
+    this.submitted = true;
+
+    if (this.authorFormGroup.valid) {
+      if (this.isEditing) {
+        this.authorService.modify(this.authorFormGroup.value).subscribe({
+          next: () => {
+            this.loadAuthor();
+            this.isEditing = false;
+            this.submitted = false;
+            this.authorFormGroup.reset();
+          },
+        });
+      } else {
+        this.authorService.save(this.authorFormGroup.value).subscribe({
+          next: data => {
+            this.arrayAuthor.push(data);
+            this.authorFormGroup.reset();
+            this.submitted = false;
+          },
+        });
+      }
     }
   }
+
 
   delete(variable: Author) {
     this.authorService.delete(variable).subscribe({
@@ -67,7 +75,4 @@ export class AuthorComponent {
     this.authorFormGroup.setValue(variable);
   }
 
-  get awarded(): any {
-    return this.authorFormGroup.get('awarded');
-  }
 }

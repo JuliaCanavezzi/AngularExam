@@ -16,6 +16,7 @@ export class BookComponent {
   bookFormGroup : FormGroup;
 
   isEditing: boolean = false
+  submitted : boolean = false
 
   constructor(private formBuilder : FormBuilder,
              private bookService: BookService,
@@ -49,21 +50,27 @@ export class BookComponent {
   }
 
   submit() {
-    if (this.isEditing) {
-      this.bookService.modify(this.bookFormGroup.value).subscribe({
-        next: () => {
-          this.loadBook();
-          this.isEditing = false;
-          this.bookFormGroup.reset();
-        },
-      });
-    } else {
-      this.bookService.save(this.bookFormGroup.value).subscribe({
-        next: data => {
-          this.arrayBook.push(data);
-          this.bookFormGroup.reset();
-        },
-      });
+    this.submitted = true;
+
+    if (this.bookFormGroup.valid) {
+      if (this.isEditing) {
+        this.bookService.modify(this.bookFormGroup.value).subscribe({
+          next: () => {
+            this.loadBook();
+            this.isEditing = false;
+            this.submitted = false;
+            this.bookFormGroup.reset();
+          },
+        });
+      } else {
+        this.bookService.save(this.bookFormGroup.value).subscribe({
+          next: data => {
+            this.arrayBook.push(data);
+            this.bookFormGroup.reset();
+            this.submitted = false;
+          },
+        });
+      }
     }
   }
 
@@ -77,4 +84,18 @@ export class BookComponent {
     this.isEditing = true;
     this.bookFormGroup.setValue(variable);
   }
+
+  getAuthorName(authorId: number): Author | undefined {
+    return this.arrayAuthor.find(a => a.id === authorId);
+  }
+
+  compareAuthors(author1: Author, author2: Author): boolean {
+    return author1 && author2 ? author1.id === author2.id : author1 === author2;
+  }
+
+  get authorId(): any {
+    return this.bookFormGroup.get('authorId')
+  }
 }
+
+
