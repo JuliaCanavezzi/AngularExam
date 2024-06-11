@@ -1,0 +1,17 @@
+.radio-genre{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3px;
+}
+.genre-column{
+  margin-left: 10px;
+}
+
+.genre{
+  border-color:dimgray;
+}
+
+.form-check-input:checked{
+  background-color: blueviolet;
+}
+

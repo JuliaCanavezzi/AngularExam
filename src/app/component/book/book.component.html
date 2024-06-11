@@ -43,21 +43,57 @@
           <div class="col">
             <label class="form-label">Release Date Of:</label>
             <div class="input-group mb-2 sm-10">
-                <input type="month" class="form-control" formControlName="date" id="ano" min="100" max="2099" step="100" placeholder="Release Date Of">
+                <input type="month" class="form-control" formControlName="date" id="ano" step="100" placeholder="Release Date Of">
               </div>
           </div>
           <div class="col">
             <label for="txtFullName" class="sm-2 form-label">
                 Literary Genre:
             </label><br>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-              <label class="form-check-label" for="inlineRadio1">Clássicos</label>
+            <div class="radio-genre">
+              <div>
+                <div class="form-check">
+                  <input class="genre form-check-input" value="Romance" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Romance
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="genre form-check-input" value="Drama" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Drama
+                  </label>
+                </div>
+              </div>
+              <div class="genre-column">
+                <div class="form-check">
+                  <input class=" genre form-check-input" value="Fiction" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Fiction
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class=" genre form-check-input" value="Adventure" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Adventure
+                  </label>
+                </div>
+              </div>
+              <div class="genre-column">
+                <div class="form-check">
+                  <input class=" genre form-check-input" value="Horror" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Horror
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="genre form-check-input" value="Fantasy" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Fantasy
+                  </label>
+                </div>
+              </div>
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">Modernos</label>
-          </div>
         </div>
         <div class="btn-save text-center">
           <button type="submit"
