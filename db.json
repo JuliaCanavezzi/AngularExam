@@ -1,29 +1,53 @@
 {
   "Book": [
     {
-      "id": 2,
-      "title": "Book Test",
+      "id": 3,
+      "title": "Harry Potter e a Pedra Filosofal",
+      "authorId": 2,
+      "synopsis": "No primeiro livro da série Harry Potter, o leitor é apresentado ao jovem bruxo Harry Potter, que descobre que é um bruxo no seu aniversário de onze anos. Ele é convidado a ingressar na Escola de Magia e Bruxaria de Hogwarts, onde faz novos amigos e descobre segredos sobre o seu passado. Quando Harry descobre que o temido bruxo das trevas, Voldemort, está tentando retornar ao poder, ele e seus amigos embarcam em uma jornada para impedir seus planos malignos.",
+      "date": "1997-06",
+      "genre": "Fantasy"
+    },
+    {
+      "id": 4,
+      "title": "Assassinato no Expresso do Oriente",
       "authorId": 3,
-      "synopsis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus nibh, fermentum non ornare quis, rhoncus in urna. Nunc pellentesque nunc a luctus dictum. Nam laoreet, orci scelerisque fringilla condimentum, odio metus volutpat lacus, vitae facilisis justo lectus quis leo. Cras lacus tellus, eleifend quis mauris vitae, lacinia commodo ante.",
-      "date": "2028-05",
-      "genre": "Drama"
+      "synopsis": " Em \"Assassinato no Expresso do Oriente\", o famoso detetive Hercule Poirot está viajando de Istambul para Calais no luxuoso trem Expresso do Oriente. Durante a viagem, um dos passageiros é brutalmente assassinado. Com o trem preso na neve, Poirot é chamado para resolver o caso. Ele descobre que todos os passageiros têm um motivo para querer o homem morto e que todos têm um álibi. Com sua sagacidade e astúcia, Poirot investiga os passageiros e desvenda o mistério.",
+      "date": "1934-02",
+      "genre": "Horror"
+    },
+    {
+      "id": 5,
+      "title": "1984",
+      "authorId": 1,
+      "synopsis": "Em \"1984\", Orwell apresenta um mundo distópico governado por um regime totalitário conhecido como Partido. O protagonista, Winston Smith, trabalha para o Ministério da Verdade, onde altera registros históricos para se adequar à narrativa oficial do Partido. Smith começa a questionar a autoridade do Partido e se rebela em segredo, apaixonando-se por Julia, uma colega de trabalho. Conforme sua dissidência é descoberta, Smith é submetido a torturas e lavagem cerebral para conformá-lo ao regime opressivo.",
+      "date": "1949-06",
+      "genre": "Fiction"
     }
   ],
   "Author": [
     {
-      "id": 3,
-      "fullname": "Julia Canavezzi",
-      "pseudonym": "ju",
-      "born": "2009-03-05",
-      "nationality": "bra",
+      "id": 1,
+      "fullname": "Eric Arthur Blair",
+      "pseudonym": "George Orwell",
+      "born": "1903-06-25",
+      "nationality": "Britânico",
+      "award": false
+    },
+    {
+      "id": 2,
+      "fullname": "Joanne Rowling",
+      "pseudonym": "J.K. Rowling",
+      "born": "1965-07-31",
+      "nationality": "Britânica ",
       "award": true
     },
     {
-      "id": 4,
-      "fullname": "dsad",
-      "pseudonym": "asa",
-      "born": "2024-06-06",
-      "nationality": "sss",
+      "id": 3,
+      "fullname": "Agatha Christie",
+      "pseudonym": "Agatha Christie",
+      "born": "1890-09-15",
+      "nationality": "Britânica",
       "award": true
     }
   ]
