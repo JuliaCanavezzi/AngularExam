@@ -5,7 +5,7 @@
         <section class="row mb-3">
           <div class="col">
             <label class="form-label">Book's Title:</label>
-            <div class="input-group mb-3">
+            <div class="input-group mb-2">
               <input
                 type="text"
                 class="form-control"
@@ -15,16 +15,18 @@
                 aria-describedby="basic-addon1"
               />
             </div>
+            <small class="text-danger text-start" *ngIf="submitted && title.hasError('required')">*Title is required</small>
           </div>
 
           <div class="col">
             <label class="form-label">Name Author:</label>
-            <div class="form-label input-group mb-3">
+            <div class="form-label input-group mb-2">
               <select class="form-control" name="authorId" id="authorId" formControlName="authorId">
                 <option [ngValue]="author.id" *ngFor="let author of arrayAuthor">{{author.fullname}}</option>
               </select>
               <span class="input-group-text"><i class="bi bi-person"></i></span>
             </div>
+            <small class="text-danger text-start" *ngIf="submitted && authorId.hasError('required')">*Name Author is required</small>
           </div>
 
           <div >
@@ -37,6 +39,7 @@
                 rows="5"
                 placeholder="Synopsis"></textarea>
             </div>
+            <small class="text-danger text-start" *ngIf="submitted && synopsis.hasError('required')">*Synopsis is required</small>
           </div>
         </section>
         <section class="row mb-3">
@@ -45,6 +48,7 @@
             <div class="input-group mb-2 sm-10">
                 <input type="month" class="form-control" formControlName="date" id="ano" step="100" placeholder="Release Date Of">
               </div>
+              <small class="text-danger text-start" *ngIf="submitted && date.hasError('required')">*Date is required</small>
           </div>
           <div class="col">
             <label for="txtFullName" class="sm-2 form-label">
@@ -73,7 +77,7 @@
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class=" genre form-check-input" value="Adventure" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <input class=" genre form-check-input" value="Adventure" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                   <label class="form-check-label" for="flexRadioDefault2">
                     Adventure
                   </label>
@@ -87,13 +91,14 @@
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="genre form-check-input" value="Fantasy" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <input class="genre form-check-input" value="Fantasy" formControlName="genre" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                   <label class="form-check-label" for="flexRadioDefault2">
                     Fantasy
                   </label>
                 </div>
               </div>
             </div>
+            <small class="text-danger text-start" *ngIf="submitted && genre.hasError('required')">*Literary Genre is required</small>
         </div>
         <div class="btn-save text-center">
           <button type="submit"

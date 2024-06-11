@@ -3,7 +3,7 @@ import { AuthorService } from '../../service/author.service';
 import { Book } from './../../interface/book';
 import { Author } from '../../interface/author';
 import { Component } from '@angular/core';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-book',
@@ -24,11 +24,11 @@ export class BookComponent {
   ){
     this.bookFormGroup = formBuilder.group({
       id: [''],
-      title: [''],
-      authorId: [''],
-      synopsis: [''],
-      date: [''],
-      genre: ['']
+      title: ['',Validators.required],
+      authorId: ['',Validators.required],
+      synopsis: ['',Validators.required],
+      date: ['',Validators.required],
+      genre: ['',Validators.required]
     });
   }
 
@@ -93,9 +93,26 @@ export class BookComponent {
     return author1 && author2 ? author1.id === author2.id : author1 === author2;
   }
 
+  get title(): any {
+    return this.bookFormGroup.get('title');
+  }
+
   get authorId(): any {
     return this.bookFormGroup.get('authorId')
   }
+
+  get synopsis(): any {
+    return this.bookFormGroup.get('synopsis');
+  }
+
+  get date(): any {
+    return this.bookFormGroup.get('date');
+  }
+
+  get genre(): any {
+    return this.bookFormGroup.get('genre');
+  }
+
 }
 
 
